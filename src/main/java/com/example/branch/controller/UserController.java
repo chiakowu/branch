@@ -28,7 +28,11 @@ public class UserController {
     @GET
     @RequestMapping(value = "/user/{name}")
     public Response getUser(@PathVariable("name") String name) {
-        System.out.println("here is UserController");
+        // regex is happily sponsored by ChatGPT :))
+        String regex = "^[a-zA-Z\\d](?:[a-zA-Z\\d]|-(?=[a-zA-Z\\d])){0,38}$";
+        if (!name.matches(regex)) {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
         return this.userService.getUser(name);
     }
 }

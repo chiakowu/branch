@@ -31,4 +31,11 @@ public class UserControllerTest {
 
         assertThat(userController.getUser("mock")).isEqualTo(response);
     }
+
+    @Test
+    public void test_get_user_endpoint_should_get_bad_request() {
+        Response response = userController.getUser("*()&#^@&$@");
+
+        assertThat(response.getStatus()).isEqualTo(400);
+    }
 }
