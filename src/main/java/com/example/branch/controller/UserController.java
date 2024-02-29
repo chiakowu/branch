@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Controller - the endpoint the service exposes
+ */
 @RestController
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -17,6 +20,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * getUser endpoint - path: <baseUrl>/user/{name} i.e. http://localhost8080/user/{name}
+     * @param name username
+     * @return Jersey Response - with status and the data
+     */
     @GET
     @RequestMapping(value = "/user/{name}")
     public Response getUser(@PathVariable("name") String name) {

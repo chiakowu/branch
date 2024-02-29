@@ -26,7 +26,7 @@ public class GitHubRepository {
     boolean isPrivate;
 
     @JsonProperty("owner")
-    Owner owner;
+    User owner;
 
     @JsonProperty("html_url")
     String htmlUrl;
