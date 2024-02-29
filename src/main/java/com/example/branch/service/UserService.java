@@ -29,10 +29,11 @@ public class UserService {
         List<GitHubRepository> gitHubRepositories = gitHubClient.getUserRepos(name);
 
         List<UserRepository> userRepositoryList = gitHubRepositories.stream()
-                .map(repo -> UserRepository.builder()
-                        .name(repo.getName())
-                        .url(repo.getHtmlUrl())
-                        .build())
+                .map(repo ->
+                        UserRepository.builder()
+                                .name(repo.getName())
+                                .url(repo.getHtmlUrl())
+                                .build())
                 .toList();
 
         UserResponse userResponse = UserResponse.builder()

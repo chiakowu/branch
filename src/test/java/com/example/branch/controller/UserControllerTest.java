@@ -27,7 +27,6 @@ public class UserControllerTest {
 
     @Test
     public void test_get_user_endpoint() {
-
         when(userService.getUser(any())).thenReturn(response);
 
         assertThat(userController.getUser("mock")).isEqualTo(response);
